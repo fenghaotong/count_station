@@ -14,7 +14,8 @@ def query():
     lines = fileObsType.readlines()
     for line in lines:
         line = line.split()
-        li.append(line[0])
+        if line[0] != 'type':
+            li.append(line[0])
 
     print("please input station:")
     station = input()

@@ -37,7 +37,7 @@ def main():
 
     # 统计台站观测信息
     print("counting....")
-    count_station = CountStation(path_nor, fileListNor, station)
+    count_station = CountStation(path_nor, fileListNor, station, start_year, end_year)
     count_station.count()
     # count_station = CountStation(path_int, fileListInt)
     # count_station.countInt()
