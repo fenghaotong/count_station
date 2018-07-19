@@ -50,6 +50,7 @@ def main():
     if choice == "Y":
         query()
 
+    # 画图
 
 if '__main__' == __name__:
     main()

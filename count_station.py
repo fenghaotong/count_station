@@ -54,14 +54,14 @@ class CountStation():
             data = pd.read_table('obsType/IVS_type.txt', delim_whitespace = True)
             data.set_index('type')
             with open(filename, 'a') as file:
-                file.write('\t')
+                file.write('year\t')
                 for IVSType in range(len(data)):
                     file.write('{0}'.format(data.ix[IVSType].type) + "\t")
                 file.write('\n')
 
             for i in range(len(self.file_list)):
                 fileYear = int(self.file_list[i][:4])
-                if (fileYear > self.start_year) and (fileYear < self.end_year):
+                if (fileYear >= self.start_year) and (fileYear < self.end_year):
                     with open(filename, 'a') as file:
                         # 读取观测类型文件，存到一个字典中
                         dd = {}
@@ -89,100 +89,3 @@ class CountStation():
                         for IVSType in range(len(data)):
                             file.write('{0}'.format(dd[data.ix[IVSType].type]) + "\t")
                         file.write('\n')
-
-
-
-#count_station = CountStation(path_nor, fileListNor, station)
-#count_station.count()
-
-"""
-                        R1 = 0
-                        R4 = 0
-                        T2 = 0
-                        CRF = 0
-                        CRD = 0
-                        RD = 0
-                        APSG = 0
-                        AOV = 0
-                        AUA = 0
-                        RV = 0
-                        EUR = 0
-                        OHG = 0
-                        C1 = 0
-                        V1 = 0
-                        AUG = 0
-                        HOB = 0
-                        JX = 0
-                        JD = 0
-                        BG = 0
-                        A1 = 0
-                        OHIG = 0
-                        AUS = 0
-                        CRM = 0
-                        """
-"""
-                                    if IVSTypes[IVSType] == 'R1':
-                                        R1 += 1
-                                    if IVSTypes[IVSType] == 'R4':
-                                        R4 += 1
-                                    if IVSTypes[IVSType] == 'T2':
-                                        T2 += 1
-                                    if IVSTypes[IVSType] == 'CRF':
-                                        CRF += 1
-                                    if IVSTypes[IVSType] == 'CRD':
-                                        CRD += 1
-                                    if IVSTypes[IVSType] == 'RD':
-                                        RD += 1
-                                    if IVSTypes[IVSType] == 'APSG':
-                                        APSG += 1
-                                    if IVSTypes[IVSType] == 'AOV':
-                                        AOV += 1
-                                    if IVSTypes[IVSType] == 'AUA':
-                                        AUA += 1
-                                    if IVSTypes[IVSType] == 'RV':
-                                        RV += 1
-                                    if IVSTypes[IVSType] == 'EUR':
-                                        EUR += 1
-                                    if IVSTypes[IVSType] == 'OHG':
-                                        OHG += 1
-                                    if IVSTypes[IVSType] == 'C1':
-                                        C1 += 1
-                                    if IVSTypes[IVSType] == 'V1':
-                                        V1 += 1
-                                    if IVSTypes[IVSType] == 'AUG':
-                                        AUG += 1
-                                    if IVSTypes[IVSType] == 'HOB':
-                                        HOB += 1
-                                    if IVSTypes[IVSType] == 'JX':
-                                        JX += 1
-                                    if IVSTypes[IVSType] == 'JD':
-                                        JD += 1
-                                    if IVSTypes[IVSType] == 'BG':
-                                        BG += 1
-                                    if IVSTypes[IVSType] == 'A1':
-                                        A1 += 1
-                                    if IVSTypes[IVSType] == 'OHIG':
-                                        OHIG += 1
-                                    if IVSTypes[IVSType] == 'AUS':
-                                        AUS += 1
-                                    if IVSTypes[IVSType] == 'CRM':
-                                        CRM += 1
-
-                        file.write(self.file_list[i][:4] + '\t' + '{}'.format(R1) + '\t' + '{}'.format(R4) + '\t' + '{}'.format(
-                            T2) + '\t' + '{}'.format(CRF) + '\t' + '{}'.format(CRD) + '\t' + '{}'.format(RD) + '\t' + '{}'.format(
-                            APSG) + '\t' + '{}'.format(AOV) + '\t' + '{}'.format(AUA) + '\t' + '{}'.format(RV) + '\t' + '{}'.format(
-                            EUR) + '\t' + '{}'.format(OHG) + '\t' + '{}'.format(C1) + '\t' + '{}'.format(V1) + '\t' + '{}'.format(
-                            AUG) + '\t' + '{}'.format(HOB) + '\t' + '{}'.format(JX) + '\t' + '{}'.format(JD) + '\t' + '{}'.format(
-                            BG) + '\t' + '{}'.format(A1) + '\t' + '{}'.format(OHIG) + '\t' + '{}'.format(AUS) + '\t' + '{}'.format(
-                            CRM) + '\n')
-                        """
-
-"""
-                       IVSTypes = []
-                       file_2 = open(pathType + 'IVS_type.txt')
-                       IVSTypeLines = file_2.readlines()
-                       for line in IVSTypeLines:
-                           IVSTypes.append(line.strip())
-                           line = line.split()
-                           exec("%s = %d" % (line[0], 0))
-                       """
